@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WINGO HACK</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('wingo_hack_bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #00f0dc;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .panel {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00f0dc;
+    }
+    input, button {
+      padding: 10px 15px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      margin: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #00f0dc;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>WINGO HACK</h1>
+    <label for="periodInput">Period Number:</label>
+    <input type="number" id="periodInput" placeholder="Enter period number..." />
+    <button onclick="showResult()">Predict</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function showResult() {
+      const patterns = [
+        "BIG 5/7", "BIG 7/8", "BIG 5/6", "BIG 8/9",
+        "SMALL 0/2", "SMALL 1/4", "SMALL 2/3", "SMALL 0/1"
+      ];
+      const random = Math.floor(Math.random() * patterns.length);
+      const result = patterns[random];
+      const period = document.getElementById("periodInput").value;
+      if (period) {
+        document.getElementById("result").innerText = `Period ${period}: ${result}`;
+      } else {
+        document.getElementById("result").innerText = "Please enter a period number.";
+      }
+    }
+  </script>
+</body>
+</html>
